@@ -7,7 +7,7 @@ All notable changes are documented here. The format follows [Keep a Changelog](h
 ### Changed
 
 - Updated GitHub Actions to Node.js 24-compatible major versions.
-- Run race tests on stable Go while retaining normal compatibility tests on Go 1.22.
+- Run race tests on stable Go while retaining Go 1.22 compatibility tests on Linux; current macOS runners cannot execute Go 1.22 Mach-O test binaries.
 
 ## [0.1.0] - 2026-08-23
 
