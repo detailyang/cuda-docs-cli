@@ -17,20 +17,23 @@ jobs:
         go: ["1.22.x", stable]
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-go@v5
+      - uses: actions/checkout@v6
+      - uses: actions/setup-go@v7
         with:
           go-version: ${{ matrix.go }}
-          cache: true
-      - run: go test -race ./...
+          cache: false
+      - run: go test ./...
+      - if: matrix.go == 'stable'
+        run: go test -race ./...
       - run: go vet ./...
       - run: CGO_ENABLED=0 go build -trimpath -tags netgo,osusergo ./cmd/cuda-docs
 
   formatting:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-go@v5
+      - uses: actions/checkout@v6
+      - uses: actions/setup-go@v7
         with:
           go-version: stable
+          cache: false
       - run: test -z "$(gofmt -l .)"

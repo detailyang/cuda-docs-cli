@@ -4,6 +4,11 @@ All notable changes are documented here. The format follows [Keep a Changelog](h
 
 ## [Unreleased]
 
+### Changed
+
+- Updated GitHub Actions to Node.js 24-compatible major versions.
+- Run race tests on stable Go while retaining normal compatibility tests on Go 1.22.
+
 ## [0.1.0] - 2026-08-23
 
 ### Added
